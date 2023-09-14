@@ -1,13 +1,13 @@
 # 1. workflow의 이름 지정
-name : CICD
+name : CI
 
-# 2. workflow 가 시작된 조건 지정
+# 2. workflow가 시작된 조건 지정
 on:
   push:
     branches: [main]
 
   env:
-    PROJECT_NAME: CafeFlow
+    PROJECT_NAME: CafeFlow_back
     BUCKET_NAME: cafeflow-bucket
     CODE_DEPLOY_APP_NAME: cafeflow_cicd
     DEPLOYMENT_GROUP_NAME: cafeflow_instance
@@ -17,7 +17,7 @@ on:
       runs-on: ubuntu-latest # 3. 실행 환경 지정
       # 4. 실행 스텝 지정
       steps:
-        - uses: actions/checkout@3
+        - uses: actions/checkout@v3
 
         - name: Set up JDK 17
           uses: actions/setup-java@v3
