@@ -1,0 +1,25 @@
+# version - appspec.yml 파일 버전을 정의(현재는 0.0 이외의 버전이 지원되지 않음)
+version: 0.0
+os: linux
+
+# files - 배포할 파일 및 디렉토리를 정의. 현재는 애플리케이션을 루트 디렉토리에서 가져와 "/home/ubuntu/cafeflow" 디렉토리로 복사
+files:
+  - source: /
+    destination: /home/ubuntu/cafeflow
+    overwrite: yes # 이미 존재하는 파일일 경우 발생하는 에러 해결
+file_exists_behavior: OVERWRITE
+
+# permissions - 애플리케이션 팡리에 대한 권한을 정의
+# 현재는 "/home/ubuntu/cafeflow" 디렉토리의 그룹과 소유자를 ubuntu로 설정
+permissions:
+  - object: /home/ubuntu/cafeflow/
+    owner: ubuntu
+    group: ubuntu
+
+# hooks - 배포 단계에서 실행할 훅 스크립트를 정의. 현재는 배포 후 실행할 스크립트인 deploy.sh 파일을 짖어하고, 스크립트 실행 시간 제한을 60초로 설정한다.
+# AfterInstall - 여러 배포 단계 중 AfterInstall 단계에서 스크립트를 실행한다.
+hooks:
+  AfterInstall:
+    - location: scripts/deploy.sh
+      timeout: 60
+      runas: ubuntu
