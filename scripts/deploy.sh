@@ -7,7 +7,7 @@ APP_NAME=cafe
 JAR_NAME=$(ls $REPOSITORY/build/libs/ | grep 'SNAPSHOT.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
 
-CURRENT_PID=$(grep -f $APP_NAME)
+CURRENT_PID=$(grep -f $APP_NAME.*.jar)
 
 if [ -z $CURRENT_PID ]
 then
