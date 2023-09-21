@@ -26,6 +26,12 @@ public class Cafe {
     private int count;
 
     public void setCount(int count){
-        this.count = this.count + count;
+        int result = this.count+ count;
+        if(result<0){
+            this.count = 0;
+        }
+        else{
+            this.count = result;
+        }
     }
 }
