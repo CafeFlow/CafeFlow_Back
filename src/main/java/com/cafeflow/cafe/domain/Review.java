@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,5 +27,11 @@ public class Review {
         this.rate = rate;
     }
 
+    public static String formatLocalDateTime(LocalDateTime localDateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
+        String formattedDate = localDateTime.format(formatter);
+
+        return formattedDate;
+    }
 }

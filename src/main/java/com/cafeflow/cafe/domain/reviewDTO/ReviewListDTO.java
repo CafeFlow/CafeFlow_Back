@@ -14,7 +14,7 @@ public class ReviewListDTO {
     private Long cafeId;
     private String comments;
     private Long rate;
-    private LocalDateTime regiDate;
+    private String regiDate;
 
 
     public ReviewListDTO(Review review) {
@@ -22,6 +22,6 @@ public class ReviewListDTO {
         this.cafeId = review.getCafeId();
         this.comments = review.getComments();
         this.rate = review.getRate();
-        this.regiDate = review.getRegiDate();
+        this.regiDate = review.formatLocalDateTime(review.getRegiDate());
     }
 }
