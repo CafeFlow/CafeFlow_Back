@@ -30,7 +30,7 @@ public class ReviewController {
     }
 
     @PutMapping("/{cafe}/reviews/{reviewId}")
-    public ResponseEntity editReview(@PathVariable("cafe") Long cafeId, @PathVariable("reviewId") Long id, ReviewEditDTO reviewDTO){
+    public ResponseEntity editReview(@PathVariable("cafe") Long cafeId, @PathVariable("reviewId") Long id, @RequestBody ReviewEditDTO reviewDTO){
         Review review = reviewService.editReview(id, reviewDTO);
         return ResponseEntity.status(HttpStatus.OK).body(review);
     }
