@@ -1,0 +1,43 @@
+package com.cafeflow.cafe.domain;
+
+import com.cafeflow.cafe.domain.reviewDTO.ReviewEditDTO;
+import com.cafeflow.cafe.domain.reviewDTO.ReviewListDTO;
+import com.cafeflow.cafe.domain.reviewDTO.ReviewWriteDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/cafe")
+public class ReviewController {
+    @Autowired
+    ReviewService reviewService;
+
+    @GetMapping("/{cafe}/reviews")
+    public ResponseEntity reviewList(@PathVariable("cafe") Long cafeId){
+        List<ReviewListDTO> reviewList = reviewService.reviewListDescendingByCafeId(cafeId);
+        return ResponseEntity.status(HttpStatus.OK).body(reviewList);
+    }
+
+    @PostMapping("/{cafe}/reviews")
+    public ResponseEntity writeReview(@PathVariable("cafe") Long cafeId, @RequestBody ReviewWriteDTO reviewDTO){
+        Review review = reviewService.writeReview(reviewDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(review);
+    }
+
+    @PutMapping("/{cafe}/reviews/{reviewId}")
+    public ResponseEntity editReview(@PathVariable("cafe") Long cafeId, @PathVariable("reviewId") Long id, ReviewEditDTO reviewDTO){
+        Review review = reviewService.editReview(id, reviewDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(review);
+    }
+
+    @DeleteMapping("/{cafe}/reviews/{reviewId}")
+    public ResponseEntity deleteReview(@PathVariable("cafe") Long cafeId, @PathVariable("reviewId") Long id){
+        Review review = reviewService.deleteReview(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(review);
+    }
+}
