@@ -4,10 +4,7 @@ import com.cafeflow.cafe.domain.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 
 @Getter
@@ -28,12 +25,12 @@ public class ReviewWriteDTO {
         this.regiDate = regiDate;
     }
 
-    public Review toEntity(){
+    public Review toEntity(Long cafeId){
 
-        LocalDateTime regiDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(this.regiDate), ZoneId.systemDefault());
+        LocalDateTime regiDateTime = LocalDateTime.now();
 
         return Review.builder()
-                .cafeId(this.cafeId)
+                .cafeId(cafeId)
                 .comments(comments)
                 .rate(rate)
                 .regiDate(regiDateTime)

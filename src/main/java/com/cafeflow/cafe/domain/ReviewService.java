@@ -21,8 +21,8 @@ public class ReviewService {
                 .collect(Collectors.toList());
     }
 
-    public Review writeReview(ReviewWriteDTO reviewDTO){
-        return reviewRepository.save(reviewDTO.toEntity());
+    public Review writeReview(ReviewWriteDTO reviewDTO, Long cafeId){
+        return reviewRepository.save(reviewDTO.toEntity(cafeId));
     }
 
     public Review editReview(Long id, ReviewEditDTO reviewDTO){

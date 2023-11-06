@@ -6,7 +6,6 @@ import com.cafeflow.cafe.domain.reviewDTO.ReviewWriteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +24,7 @@ public class ReviewController {
 
     @PostMapping("/{cafe}/reviews")
     public ResponseEntity writeReview(@PathVariable("cafe") Long cafeId, @RequestBody ReviewWriteDTO reviewDTO){
-        Review review = reviewService.writeReview(reviewDTO);
+        Review review = reviewService.writeReview(reviewDTO, cafeId);
         return ResponseEntity.status(HttpStatus.OK).body(review);
     }
 
