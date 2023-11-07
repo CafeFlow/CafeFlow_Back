@@ -26,6 +26,7 @@ public class ReviewController {
         Map<String, Object> res = new HashMap<>();
         res.put("reviewList", reviewList);
         res.put("averRating", averageRating);
+        res.put("reviewSize", reviewList.size());
 
         return ResponseEntity.status(HttpStatus.OK).body(res);
     }
