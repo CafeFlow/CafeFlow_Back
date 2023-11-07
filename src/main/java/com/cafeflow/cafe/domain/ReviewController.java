@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/cafe")
@@ -19,7 +21,13 @@ public class ReviewController {
     @GetMapping("/{cafe}/reviews")
     public ResponseEntity reviewList(@PathVariable("cafe") Long cafeId){
         List<ReviewListDTO> reviewList = reviewService.reviewListDescendingByCafeId(cafeId);
-        return ResponseEntity.status(HttpStatus.OK).body(reviewList);
+        double averageRating = reviewService.calculateAverageRatingForCafe(cafeId);
+
+        Map<String, Object> res = new HashMap<>();
+        res.put("reviewList", reviewList);
+        res.put("averRating", averageRating);
+
+        return ResponseEntity.status(HttpStatus.OK).body(res);
     }
 
     @PostMapping("/{cafe}/reviews")

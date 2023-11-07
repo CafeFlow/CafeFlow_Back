@@ -39,4 +39,16 @@ public class ReviewService {
         reviewRepository.delete(review);
         return review;
     }
+
+    public double calculateAverageRatingForCafe(Long cafeId){
+        List<Review> reviews = reviewRepository.findByCafeId(cafeId);
+
+        if(reviews.isEmpty()){
+            return 0.0;
+        }
+
+        double totalRating = reviews.stream().mapToDouble(Review::getRate).sum();
+
+        return Math.round((totalRating/reviews.size())*100) / 100.0;
+    }
 }
