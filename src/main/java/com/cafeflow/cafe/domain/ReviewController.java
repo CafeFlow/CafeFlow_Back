@@ -18,15 +18,22 @@ public class ReviewController {
     @Autowired
     ReviewService reviewService;
 
+    @Autowired
+    CafeRepository cafeRepository;
+
     @GetMapping("/{cafe}/reviews")
     public ResponseEntity reviewList(@PathVariable("cafe") Long cafeId){
         List<ReviewListDTO> reviewList = reviewService.reviewListDescendingByCafeId(cafeId);
         double averageRating = reviewService.calculateAverageRatingForCafe(cafeId);
 
+        Cafe cafe = cafeRepository.findById(cafeId).orElse(null);
+        String cafeName = cafe.getName();
+
         Map<String, Object> res = new HashMap<>();
         res.put("reviewList", reviewList);
         res.put("averRating", averageRating);
         res.put("reviewSize", reviewList.size());
+        res.put("cafeName", cafeName);
 
         return ResponseEntity.status(HttpStatus.OK).body(res);
     }
