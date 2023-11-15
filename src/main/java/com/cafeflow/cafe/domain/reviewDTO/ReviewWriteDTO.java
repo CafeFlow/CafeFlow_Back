@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 
 @Getter
@@ -27,7 +28,7 @@ public class ReviewWriteDTO {
 
     public Review toEntity(Long cafeId){
 
-        LocalDateTime regiDateTime = LocalDateTime.now();
+        LocalDateTime regiDateTime = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
 
         return Review.builder()
                 .cafeId(cafeId)
