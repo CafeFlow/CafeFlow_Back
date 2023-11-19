@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,9 @@ public class ReviewController {
     @GetMapping("/{cafe}/reviews")
     public ResponseEntity reviewList(@PathVariable("cafe") Long cafeId){
         List<ReviewListDTO> reviewList = reviewService.reviewListDescendingByCafeId(cafeId);
+
+        int tmpSize = reviewList.size();
+
         double averageRating = reviewService.calculateAverageRatingForCafe(cafeId);
 
         Cafe cafe = cafeRepository.findById(cafeId).orElse(null);
@@ -32,7 +36,7 @@ public class ReviewController {
         Map<String, Object> res = new HashMap<>();
         res.put("reviewList", reviewList);
         res.put("averRating", averageRating);
-        res.put("reviewSize", reviewList.size());
+        res.put("reviewSize", tmpSize);
         res.put("cafeName", cafeName);
 
         return ResponseEntity.status(HttpStatus.OK).body(res);

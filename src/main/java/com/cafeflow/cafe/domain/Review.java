@@ -20,7 +20,7 @@ public class Review {
     private Long cafeId;
     private String comments;
     private Long rate;
-    private LocalDateTime regiDate;
+    private String regiDate;
 
     public void update(String comments, Long rate){
         this.comments = comments;

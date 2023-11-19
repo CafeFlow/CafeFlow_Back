@@ -34,7 +34,7 @@ public class ReviewWriteDTO {
                 .cafeId(cafeId)
                 .comments(comments)
                 .rate(rate)
-                .regiDate(regiDateTime)
+                .regiDate(String.valueOf(regiDateTime))
                 .build();
     }
 }

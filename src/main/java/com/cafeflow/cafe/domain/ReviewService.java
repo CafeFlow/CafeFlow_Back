@@ -7,6 +7,7 @@ import com.cafeflow.cafe.exception.NonExistentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,9 +17,23 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
 
     public List<ReviewListDTO> reviewListDescendingByCafeId(Long cafeId){
-        return reviewRepository.findAllByCafeIdOrderByIdDesc(cafeId).stream()
-                .map(ReviewListDTO::new)
-                .collect(Collectors.toList());
+        List<Review> reviews = reviewRepository.findAllByCafeIdOrderByIdDesc(cafeId);
+        List<ReviewListDTO> reviewList = new ArrayList<>();
+
+        int reviewNumber = reviews.size();
+        for (Review review : reviews) {
+            ReviewListDTO reviewDTO = ReviewListDTO.builder()
+                    .id(review.getId())
+                    .cafeId(review.getCafeId())
+                    .comments(review.getComments())
+                    .rate(review.getRate())
+                    .regiDate(review.getRegiDate())
+                    .reviewNum((long) reviewNumber--)
+                    .build();
+            reviewList.add(reviewDTO);
+        }
+
+        return reviewList;
     }
 
     public Review writeReview(ReviewWriteDTO reviewDTO, Long cafeId){
