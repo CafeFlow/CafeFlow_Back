@@ -24,6 +24,7 @@ public class Cafe {
     private double xMap;
     private double yMap;
     private int count;
+    private String category;
 
     public void setCount(int count){
         int result = this.count+ count;

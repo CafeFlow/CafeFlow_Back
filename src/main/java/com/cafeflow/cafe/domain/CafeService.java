@@ -30,7 +30,9 @@ public class CafeService {
                     .address(v.getAddress())
                     .xMap(v.getXMap())
                     .yMap(v.getYMap())
-                    .count(v.getCount()).build());
+                    .count(v.getCount())
+                    .category(v.getCategory())
+                    .build());
         });
         return res;
     }

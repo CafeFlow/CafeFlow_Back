@@ -13,5 +13,6 @@ public class CafeDTO {
         private double xMap;
         private double yMap;
         private int count;
+        private String category;
     }
 }
