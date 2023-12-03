@@ -1,15 +1,16 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.review.service;
 
-import com.cafeflow.cafe.domain.reviewDTO.ReviewEditDTO;
-import com.cafeflow.cafe.domain.reviewDTO.ReviewListDTO;
-import com.cafeflow.cafe.domain.reviewDTO.ReviewWriteDTO;
+import com.cafeflow.cafe.domain.review.dto.ReviewEditDTO;
+import com.cafeflow.cafe.domain.review.dto.ReviewListDTO;
+import com.cafeflow.cafe.domain.review.dto.ReviewWriteDTO;
+import com.cafeflow.cafe.domain.review.entity.Review;
+import com.cafeflow.cafe.domain.review.repository.ReviewRepository;
 import com.cafeflow.cafe.exception.NonExistentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service

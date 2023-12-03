@@ -1,14 +1,17 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.review.controller;
 
-import com.cafeflow.cafe.domain.reviewDTO.ReviewEditDTO;
-import com.cafeflow.cafe.domain.reviewDTO.ReviewListDTO;
-import com.cafeflow.cafe.domain.reviewDTO.ReviewWriteDTO;
+import com.cafeflow.cafe.domain.review.service.ReviewService;
+import com.cafeflow.cafe.domain.cafe.entity.Cafe;
+import com.cafeflow.cafe.domain.cafe.repository.CafeRepository;
+import com.cafeflow.cafe.domain.review.dto.ReviewEditDTO;
+import com.cafeflow.cafe.domain.review.dto.ReviewListDTO;
+import com.cafeflow.cafe.domain.review.dto.ReviewWriteDTO;
+import com.cafeflow.cafe.domain.review.entity.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

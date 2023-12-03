@@ -1,4 +1,4 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.cafe.dto;
 
 import lombok.Builder;
 import lombok.Data;

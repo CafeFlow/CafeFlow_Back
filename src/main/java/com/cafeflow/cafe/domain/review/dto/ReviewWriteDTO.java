@@ -1,6 +1,6 @@
-package com.cafeflow.cafe.domain.reviewDTO;
+package com.cafeflow.cafe.domain.review.dto;
 
-import com.cafeflow.cafe.domain.Review;
+import com.cafeflow.cafe.domain.review.entity.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

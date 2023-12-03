@@ -1,5 +1,6 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.review.repository;
 
+import com.cafeflow.cafe.domain.review.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

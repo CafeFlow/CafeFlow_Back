@@ -1,5 +1,8 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.cafe.service;
 
+import com.cafeflow.cafe.domain.cafe.dto.CafeDTO;
+import com.cafeflow.cafe.domain.cafe.entity.Cafe;
+import com.cafeflow.cafe.domain.cafe.repository.CafeRepository;
 import com.cafeflow.cafe.exception.NonExistentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,13 +1,8 @@
-package com.cafeflow.cafe.domain.reviewDTO;
+package com.cafeflow.cafe.domain.review.dto;
 
-import com.cafeflow.cafe.domain.Cafe;
-import com.cafeflow.cafe.domain.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter
 @Setter

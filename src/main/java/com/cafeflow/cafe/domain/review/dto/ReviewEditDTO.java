@@ -1,4 +1,4 @@
-package com.cafeflow.cafe.domain.reviewDTO;
+package com.cafeflow.cafe.domain.review.dto;
 
 import lombok.Builder;
 import lombok.Getter;

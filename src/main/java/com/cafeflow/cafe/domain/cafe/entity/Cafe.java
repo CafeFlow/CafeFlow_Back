@@ -1,4 +1,4 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.cafe.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

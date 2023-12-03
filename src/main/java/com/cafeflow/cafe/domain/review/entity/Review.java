@@ -1,4 +1,4 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.review.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

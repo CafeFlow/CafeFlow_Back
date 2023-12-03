@@ -1,6 +1,5 @@
 package com.cafeflow.cafe.exception;
 
-import com.cafeflow.cafe.domain.CafeDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

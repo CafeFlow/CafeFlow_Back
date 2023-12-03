@@ -1,5 +1,7 @@
-package com.cafeflow.cafe.domain;
+package com.cafeflow.cafe.domain.cafe.controller;
 
+import com.cafeflow.cafe.domain.cafe.dto.CafeDTO;
+import com.cafeflow.cafe.domain.cafe.service.CafeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
