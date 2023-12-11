@@ -25,7 +25,8 @@ public class Cafe {
     private double yMap;
     private int count;
     private String category;
-
+    private int maxSeat;
+    private String runningTime;
     public void setCount(int count){
         int result = this.count+ count;
         if(result<0){

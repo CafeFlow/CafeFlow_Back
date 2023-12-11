@@ -14,5 +14,7 @@ public class CafeDTO {
         private double yMap;
         private int count;
         private String category;
+        private int maxSeat;
+        private String runningTime;
     }
 }

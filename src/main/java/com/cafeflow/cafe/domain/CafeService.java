@@ -32,6 +32,8 @@ public class CafeService {
                     .yMap(v.getYMap())
                     .count(v.getCount())
                     .category(v.getCategory())
+                    .maxSeat(v.getMaxSeat())
+                    .runningTime(v.getRunningTime())
                     .build());
         });
         return res;
