@@ -27,7 +27,6 @@ public class Cafe {
     private String category;
     private int maxSeat;
     private String runningTime;
-    private String notice;
     public void setCount(int count){
         int result = this.count+ count;
         if(result<0){

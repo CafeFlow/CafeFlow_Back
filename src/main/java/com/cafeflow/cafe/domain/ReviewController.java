@@ -4,11 +4,12 @@ import com.cafeflow.cafe.domain.reviewDTO.ReviewEditDTO;
 import com.cafeflow.cafe.domain.reviewDTO.ReviewListDTO;
 import com.cafeflow.cafe.domain.reviewDTO.ReviewWriteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +39,9 @@ public class ReviewController {
         res.put("averRating", averageRating);
         res.put("reviewSize", tmpSize);
         res.put("cafeName", cafeName);
-
+        if(cafe.getId()==4){
+            res.put("notice", "공대 독서실의 경우 짐을 두고 외출하는 경우가 많아 제공하는 인원 수보다 잔여 좌석 수가 적을 수 있으니 참고 바랍니다. ");
+        }
         return ResponseEntity.status(HttpStatus.OK).body(res);
     }
 

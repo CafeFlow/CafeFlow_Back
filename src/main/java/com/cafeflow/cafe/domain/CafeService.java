@@ -34,7 +34,6 @@ public class CafeService {
                     .category(v.getCategory())
                     .maxSeat(v.getMaxSeat())
                     .runningTime(v.getRunningTime())
-                    .notice(v.getNotice())
                     .build());
         });
         return res;

@@ -16,6 +16,5 @@ public class CafeDTO {
         private String category;
         private int maxSeat;
         private String runningTime;
-        private String notice;
     }
 }
